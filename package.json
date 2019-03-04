@@ -1,0 +1,21 @@
+{
+  "name": "aufgabe1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Schmitz-Dynamics@bitbucket.org/Schmitz-Dynamics/m152-examen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Schmitz-Dynamics/m152-examen#readme"
+}

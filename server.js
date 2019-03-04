@@ -14,15 +14,18 @@ const app = express();
 app.post('/api/files', upload.single('file'), (req, res) => {
     gm(req.file.path)
         .resize(720)
-        .write('uploads/small_' + req.file.filename, () => {
+        .write('uploads/small_' + req.file.filename, (err) => {
+        console.log(err);
     });
     gm(req.file.path)
         .resize(1280)
-        .write('uploads/medium_' + req.file.filename, () => {
+        .write('uploads/medium_' + req.file.filename, (err) => {
+        console.log(err);
     });
     gm(req.file.path)
         .resize(2044)
-        .write('uploads/big_' + req.file.filename, () => {
+        .write('uploads/big_' + req.file.filename, (err) => {
+        console.log(err);
     });
     res.status(200).json({ success: true });
 });

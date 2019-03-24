@@ -10,7 +10,8 @@
     "fluent-ffmpeg": "^2.1.2",
     "gm": "^1.23.1",
     "multer": "^1.4.1",
-    "typerscript": "^0.2.3"
+    "typerscript": "^0.2.3",
+    "typestyle": "^2.0.1"
   },
   "devDependencies": {
     "@types/gm": "^1.18.2",

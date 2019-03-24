@@ -36,7 +36,7 @@ app.post('/api/videos',function(req,res){
             fmpg = fmpg.addInput('./uploads/'+ file.filename);
         });
 
-        fmpg.mergeToFile('.uploads/zusammengefügt.mp4', './uploads/')
+        fmpg.mergeToFile('./uploads/zusammengefügt.mp4', './uploads/')
             .on('start', function (cli) {
                 console.log('starting', cli);
             })

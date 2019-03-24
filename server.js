@@ -4,6 +4,15 @@ const cors = require("cors");
 const express = require('express');
 const ffmpeg = require('fluent-ffmpeg');
 const multer = require("multer");
+const app = express();
+app.use(cors());
+app.all('*', function (req, res, next) {
+    var origin = req.get('origin');
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads/');
@@ -12,8 +21,6 @@ const storage = multer.diskStorage({
         callback(null, file.originalname);
     }
 });
-const app = express();
-app.use(cors());
 const upload = multer({ storage: storage }).array('file');
 app.post('/api/videos', function (req, res) {
     upload(req, res, function (err) {

@@ -1,4 +1,10 @@
+import * as fs from "fs";
+import * as Multer from "multer";
+import * as path from "path";
+
+const cors = require("cors");
 const express = require('express');
+const ffmpeg = require('fluent-ffmpeg');
 const multer = require("multer");
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -8,30 +14,64 @@ const storage = multer.diskStorage({
         callback(null, file.originalname);
     }
 });
-const upload = multer({storage: storage});
-const gm = require("gm").subClass({
-    imageMagick: true
-});
+
+let gm;
+process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV.trim() : "production";
+if (process.env.NODE_ENV === "development") {
+    gm = require("gm");
+} else {
+    gm = require("gm").subClass({
+        imageMagick: true
+    });
+}
+
 const app = express();
-app.post('/api/files', upload.single('file'), (req, res) => {
-    gm(req.file.path)
-        .resize(720)
-        .write('uploads/small_' + req.file.filename, (err) => {
-            console.log(err);
+app.use(cors());
+
+const upload = multer({storage: storage}).array('file');
+
+app.post('/api/videos',function(req,res){
+    upload(req,res,function(err) {
+        const videoFiles = req.files;
+
+        let fmpg = ffmpeg();
+
+        console.log("dirname: "+ __dirname);
+
+        // ffmpeg.setFfmpegPath(path.join(__dirname, '../../ffmpeg/bin/ffmpeg.exe'));
+        // ffmpeg.setFfprobePath(path.join(__dirname, '../../ffmpeg/bin/ffprobe.exe'));
+
+        videoFiles.forEach(function (file) {
+            fmpg = fmpg.addInput(file.filename);
         });
-    gm(req.file.path)
-        .resize(1280)
-        .write('uploads/medium_' + req.file.filename, (err) => {
-            console.log(err);
-        });
-    gm(req.file.path)
-        .resize(2044)
-        .write('uploads/big_' + req.file.filename, (err) => {
-            console.log(err);
-        });
-    res.status(200).json({success: true});
+
+        fmpg.mergeToFile('.uploads/mergedVideo', './tmp/')
+            .on('start', function (cli) {
+                console.log('starting', cli);
+            })
+            .on('error', function(err) {
+                console.log('Error ' + err.message);
+            })
+            .on('end', function() {
+                console.log('Finished!');
+            });
+
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+
+        res.end("File is uploaded");
+    });
 });
+
+
 app.use('/static', express.static('uploads'));
+app.use('', express.static('dist'));
+
+app.get('*', function(req, res){
+    res.sendFile(__dirname + '/dist/index.html');
+});
+
 app.listen(process.env.PORT || 4000, function () {
     console.log('Your node js server is running');
 });

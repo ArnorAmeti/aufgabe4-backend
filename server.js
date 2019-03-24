@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const cors = require("cors");
 const express = require('express');
 const ffmpeg = require('fluent-ffmpeg');
@@ -26,13 +24,10 @@ app.post('/api/videos', function (req, res) {
     upload(req, res, function (err) {
         const videoFiles = req.files;
         let fmpg = ffmpeg();
-        console.log("dirname: " + __dirname);
-        // ffmpeg.setFfmpegPath(path.join(__dirname, '../../ffmpeg/bin/ffmpeg.exe'));
-        // ffmpeg.setFfprobePath(path.join(__dirname, '../../ffmpeg/bin/ffprobe.exe'));
         videoFiles.forEach(function (file) {
             fmpg = fmpg.addInput(file.filename);
         });
-        fmpg.mergeToFile('.uploads/mergedVideo', './tmp/')
+        fmpg.mergeToFile('.uploads/zusammengefügt.mp4', './tmp/')
             .on('start', function (cli) {
             console.log('starting', cli);
         })

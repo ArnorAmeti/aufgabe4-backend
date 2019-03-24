@@ -1,5 +1,3 @@
-import * as path from "path";
-
 const cors = require("cors");
 const express = require('express');
 const ffmpeg = require('fluent-ffmpeg');
@@ -26,7 +24,6 @@ const storage = multer.diskStorage({
 });
 
 
-
 const upload = multer({storage: storage}).array('file');
 
 app.post('/api/videos',function(req,res){
@@ -35,16 +32,11 @@ app.post('/api/videos',function(req,res){
 
         let fmpg = ffmpeg();
 
-        console.log("dirname: "+ __dirname);
-
-        // ffmpeg.setFfmpegPath(path.join(__dirname, '../../ffmpeg/bin/ffmpeg.exe'));
-        // ffmpeg.setFfprobePath(path.join(__dirname, '../../ffmpeg/bin/ffprobe.exe'));
-
         videoFiles.forEach(function (file) {
             fmpg = fmpg.addInput(file.filename);
         });
 
-        fmpg.mergeToFile('.uploads/mergedVideo', './tmp/')
+        fmpg.mergeToFile('.uploads/zusammengefügt.mp4', './tmp/')
             .on('start', function (cli) {
                 console.log('starting', cli);
             })

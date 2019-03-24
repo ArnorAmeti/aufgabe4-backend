@@ -33,7 +33,7 @@ app.post('/api/videos',function(req,res){
         let fmpg = ffmpeg();
 
         videoFiles.forEach(function (file) {
-            fmpg = fmpg.addInput(file.filename);
+            fmpg = fmpg.addInput('./uploads/'+ file.filename);
         });
 
         fmpg.mergeToFile('.uploads/zusammengefügt.mp4', './uploads/')

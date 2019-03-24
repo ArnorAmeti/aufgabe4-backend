@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07b6c5b9-f550-4049-8d2e-ef4f432949d7" name="Default Changelist" comment="feat: add video upload feature">
+    <list default="true" id="07b6c5b9-f550-4049-8d2e-ef4f432949d7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server.ts" afterDir="false" />
@@ -35,28 +36,28 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="js" value="6" />
-          <entry key="json" value="1" />
+          <entry key="json" value="3" />
           <entry key="map" value="1" />
-          <entry key="ts" value="1" />
+          <entry key="ts" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="1" />
+          <entry key="JSON" value="3" />
           <entry key="JavaScript" value="6" />
           <entry key="SourceMap" value="1" />
-          <entry key="TypeScript" value="1" />
+          <entry key="TypeScript" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="ts" value="587" />
-          <entry key="txt" value="42" />
+          <entry key="txt" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="42" />
+          <entry key="PLAIN_TEXT" value="80" />
           <entry key="TypeScript" value="587" />
         </counts>
       </usages-collector>
@@ -64,11 +65,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state relative-caret-position="46">
+              <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -76,17 +77,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+            <state>
+              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+            <state relative-caret-position="265">
+              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -104,6 +105,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>multer</find>
+      <find>SET NODE_ENV=development</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,8 +116,8 @@
       <list>
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/server.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -136,8 +138,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-89" />
-    <option name="y" value="36" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -188,7 +190,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="s&#9;FILE&#9;file://C:/Users/Arnor Ameti/Aufgabe3/m152-examen/server.js&#10;ser&#9;FILE&#9;file://C:/Users/Arnor Ameti/Aufgabe3/m152-examen/server.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/aufgabe-3-backend" />
+    <property name="last_opened_file_path" value="$USER_HOME$/aufgabe-3-backend-ameti" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
@@ -229,7 +231,7 @@
       <workItem from="1553014745127" duration="5015000" />
       <workItem from="1553370983202" duration="246000" />
       <workItem from="1553371279720" duration="11812000" />
-      <workItem from="1553414986034" duration="467000" />
+      <workItem from="1553414986034" duration="2206000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add video upload feature">
       <created>1553414870678</created>
@@ -245,17 +247,31 @@
       <option name="project" value="LOCAL" />
       <updated>1553415203094</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: add video upload feature">
+      <created>1553415474136</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1553415474136</updated>
+    </task>
+    <task id="LOCAL-00004" summary="regenerate dependecies">
+      <created>1553415825641</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1553415825641</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21272000" />
+    <option name="totallyTimeSpent" value="23011000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15806112" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15806112" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -268,7 +284,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.31852654" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.38786566" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32936078" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -310,9 +326,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add video upload feature" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="feat: add video upload feature" />
+    <MESSAGE value="regenerate dependecies" />
+    <option name="LAST_COMMIT_MESSAGE" value="regenerate dependecies" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/@types/multer/index.d.ts" />
@@ -335,13 +352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/node/globals.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="166" column="12" selection-start-line="166" selection-start-column="12" selection-end-line="166" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -349,24 +359,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/node/globals.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="-1309">
+          <caret line="747" column="8" selection-start-line="747" selection-start-column="8" selection-end-line="747" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+        <state>
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="46">
+          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>

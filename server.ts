@@ -1,3 +1,5 @@
+import * as path from "path";
+
 const cors = require("cors");
 const express = require('express');
 const ffmpeg = require('fluent-ffmpeg');

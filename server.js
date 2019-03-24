@@ -23,20 +23,22 @@ const upload = multer({ storage: storage }).array('file');
 app.post('/api/videos', function (req, res) {
     upload(req, res, function (err) {
         const videoFiles = req.files;
-        let fmpg = ffmpeg();
-        videoFiles.forEach(function (file) {
-            fmpg = fmpg.addInput('./uploads/' + file.filename);
-        });
-        fmpg.mergeToFile('./uploads/zusammengefügt.mp4', './uploads/')
-            .on('start', function (cli) {
-            console.log('starting', cli);
-        })
-            .on('error', function (err) {
-            console.log('Error ' + err.message);
-        })
-            .on('end', function () {
-            console.log('Finished!');
-        });
+        if (videoFiles.length > 1) {
+            let fmpg = ffmpeg();
+            videoFiles.forEach(function (file) {
+                fmpg = fmpg.addInput('./uploads/' + file.filename);
+            });
+            fmpg.mergeToFile('./uploads/zusammengefügt.mp4', './uploads/')
+                .on('start', function (cli) {
+                console.log('starting', cli);
+            })
+                .on('error', function (err) {
+                console.log('Error ' + err.message);
+            })
+                .on('end', function () {
+                console.log('Finished!');
+            });
+        }
         if (err) {
             return res.end("Error uploading file.");
         }

@@ -6,6 +6,7 @@ const cors = require("cors");
 const express = require('express');
 const ffmpeg = require('fluent-ffmpeg');
 const multer = require("multer");
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads/')
@@ -14,16 +15,6 @@ const storage = multer.diskStorage({
         callback(null, file.originalname);
     }
 });
-
-let gm;
-process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV.trim() : "production";
-if (process.env.NODE_ENV === "development") {
-    gm = require("gm");
-} else {
-    gm = require("gm").subClass({
-        imageMagick: true
-    });
-}
 
 const app = express();
 app.use(cors());

@@ -31,7 +31,7 @@ app.post('/api/videos',function(req,res){
 
         const videoFiles = req.files;
 
-        if (videoFiles.length > 1){
+        //if (videoFiles.length > 1){
             let fmpg = ffmpeg();
 
             videoFiles.forEach(function (file) {
@@ -48,7 +48,7 @@ app.post('/api/videos',function(req,res){
                 .on('end', function() {
                     console.log('Finished!');
                 });
-        }
+       // }
 
         if(err) {
             return res.end("Error uploading file.");

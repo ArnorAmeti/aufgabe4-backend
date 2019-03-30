@@ -1,7 +1,8 @@
 const cors = require("cors");
 const express = require('express');
-const ffmpeg = require('fluent-ffmpeg');
 const multer = require("multer");
+const fs = require('fs');
+const path = require('path');
 const app = express();
 app.use(cors());
 app.all('*', function (req, res, next) {
@@ -19,37 +20,48 @@ const storage = multer.diskStorage({
         callback(null, file.originalname);
     }
 });
-const upload = multer({ storage: storage }).array('file');
-app.post('/api/videos', function (req, res) {
+const accepted_extensions = ['mp3', 'wav', 'aac', 'wma', 'aiff', 'vtt'];
+const upload = multer({
+    storage: storage,
+    fileFilter: function (req, file, cb) {
+        if (accepted_extensions.some(ext => file.originalname.endsWith("." + ext))) {
+            return cb(null, true);
+        }
+        return cb(new Error('Only ' + accepted_extensions.join(", ") + ' files are allowed!'));
+    }
+}).array('file', 2);
+app.post('api/audios', function (req, res) {
     upload(req, res, function (err) {
-        const videoFiles = req.files;
-        if (videoFiles.length > 1) {
-            let fmpg = ffmpeg();
-            videoFiles.forEach(function (file) {
-                fmpg = fmpg.addInput('./uploads/' + file.filename);
-            });
-            fmpg.mergeToFile('./uploads/zusammengefügt.mp4', './uploads/')
-                .on('start', function (cli) {
-                console.log('starting', cli);
-            })
-                .on('error', function (err) {
-                console.log('Error ' + err.message);
-            })
-                .on('end', function () {
-                console.log('Finished!');
-            });
-        }
+        const uploadFiles = req.files;
         if (err) {
-            return res.end("Error uploading file.");
+            console.log("err: " + err);
+            return res.end("Error uploading files.");
         }
-        res.end("File is uploaded");
+        if (!uploadFiles) {
+            return res.end("Please upload a file");
+        }
+        let files = fs.readdirSync('./uploads');
+        //check if the are two files in the uploads folder
+        if (files.length > 1) {
+            let audio;
+            let vtt;
+            for (let file of files) {
+                if (file.endsWith(".vtt")) {
+                    vtt = "resources/" + file;
+                }
+                else {
+                    audio = "resources/" + file;
+                }
+            }
+            res.json({
+                audio,
+                vtt
+            });
+        }
     });
 });
-app.use('/static', express.static('uploads'));
-app.use('', express.static('dist'));
-app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/dist/index.html');
-});
+app.use(express.static('public'));
+app.use('/resources', express.static(__dirname + '/uploads'));
 app.listen(process.env.PORT || 4000, function () {
     console.log('Your node js server is running');
 });

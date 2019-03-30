@@ -35,7 +35,7 @@ const upload = multer({
     }
 }).array('file', 2);
 
-app.post('api/audios', function (req, res) {
+app.post('/api/uploadAudio', function (req, res) {
     upload(req, res, function (err) {
 
         const uploadFiles = req.files;

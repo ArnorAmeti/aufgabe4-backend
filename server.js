@@ -30,7 +30,7 @@ const upload = multer({
         return cb(new Error('Only ' + accepted_extensions.join(", ") + ' files are allowed!'));
     }
 }).array('file', 2);
-app.post('api/audios', function (req, res) {
+app.post('/api/uploadAudio', function (req, res) {
     upload(req, res, function (err) {
         const uploadFiles = req.files;
         if (err) {

@@ -24,10 +24,13 @@ const storage = multer.diskStorage({
     }
 });
 
+//definiert, dass nur audiodateien verwendet werden (über die endung)
 const accepted_extensions = ['mp3', 'wav', 'aac', 'wma', 'aiff', 'vtt'];
+
 const upload = multer({
     storage: storage,
     fileFilter: function (req, file, cb) {
+        //checkt ob die dateien, welche geuploaded werden, die dateiendung aus dem array beinhalten
         if (accepted_extensions.some(ext => file.originalname.endsWith("." + ext))) {
             return cb(null, true);
         }
